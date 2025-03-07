@@ -1,0 +1,826 @@
+@font-face {
+    font-family: "Actiniar";
+    src: url("../fonts/Actinia-Regular.otf");
+
+}
+@font-face {
+    font-family: "Kudry";
+    src: url("../fonts/kudry_weird-headline.otf");
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    /*font-family: "Cormorant Infant", sans-serif;*/
+    /*font-family: "Book Antiqua", sans-serif;*/
+    /*font-family: "Alumni Sans Pinstripe", sans-serif;*/
+    font-family: "Poiret One", sans-serif;
+
+
+}
+
+body {
+    -webkit-text-size-adjust: 100%;
+
+}
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.hid {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 3s ease-out;
+}
+
+
+
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #faf1eb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+    z-index: 1000;
+}
+
+/* Скрытие прелоадера */
+.preloader.hidden-main {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Буквы */
+.letter {
+    font-family: "Book Antiqua", sans-serif;
+
+    font-size: 100px;
+    font-weight: bold;
+    position: absolute;
+    opacity: 0;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+/* Контур сердца */
+.heart {
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.heart img {
+    width: 100px;
+    height: 100px;
+}
+@keyframes moveIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-600px); /* Начальная позиция для буквы И */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-100px); /* Конечная позиция в центре */
+    }
+}
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(600px); /* Начальная позиция для буквы А */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(100px); /* Конечная позиция в центре */
+    }
+}
+
+/* Начальное положение букв */
+.letter.i {
+    animation-name: moveIn;
+}
+
+.letter.a {
+    animation-name: moveInRight;
+}
+
+
+
+.slick-slider{
+    display: none;
+}
+
+
+
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.first img {
+    filter: brightness(0) invert(1);
+    /*filter: brightness(95%) saturate(58%) invert(21%) sepia(134%) saturate(708%) hue-rotate(322deg) brightness(67%) contrast(22%);*/
+}
+
+.first-page {
+    position: relative;
+    padding: 30px 0;
+    background-image: url("../images/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+}
+.first-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3); /* Черный с прозрачностью 50% */
+    z-index: 1;
+}
+
+.first-page .container {
+    z-index: 2;
+    position: relative;
+}
+.invite-title {
+    color: white;
+    font-size: 40px;
+    line-height: 80%;
+    text-align: right;
+    font-family: "Kudry", sans-serif;
+}
+.invite-photos {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+.invite-photo {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.invite-photo img {
+    max-width: 250px;
+}
+.invite-photo span {
+    font-family: "Kudry", sans-serif;
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+    line-height: 60%;
+    color: #fff;
+    padding: 5px;
+    border-radius: 50%;
+    font-size: 120px;
+}
+.invite-date {
+    display: none;
+    margin-top: 100px;
+    font-size: 50px;
+    /*display: flex;*/
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 100px;
+}
+/*.invite-day {*/
+/*    padding: 5px 0 15px 0;*/
+/*    border-top: 1px solid #8c673f;*/
+/*    border-bottom: 1px solid #8c673f;*/
+/*    line-height: 100%;*/
+/*}*/
+/*.invite-calendar {*/
+/*    border-right:  1px solid #8c673f;*/
+/*    border-left: 1px solid #8c673f;*/
+/*    padding: 0 15px ;*/
+/*    text-align: center;*/
+/*}*/
+/*.invite-time {*/
+/*    padding: 10px 23px;*/
+/*    border-top: 1px solid #8c673f;*/
+/*    border-bottom: 1px solid #8c673f;*/
+/*    line-height: 100%;*/
+/*}*/
+/*.number {*/
+/*    font-size: 60px;*/
+/*}*/
+/*.year {*/
+/*    font-size: 55px;*/
+/*}*/
+.invite-name {
+    text-align: center;
+    font-size: 75px;
+    margin-top: 30px;
+    font-weight: bold;
+    color: white;
+}
+
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+
+.dear {
+    font-family: "Kudry", sans-serif;
+    font-size: 70px;
+    text-align: center;
+}
+
+.no-fonts {
+    text-align: center;
+    font-size: 25px;
+    margin-top: 30px;
+    font-weight: normal;
+    width: 100%;
+
+}
+.about {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.about .container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+.about-title {
+    font-family: "Kudry", sans-serif;
+    font-size: 50px;
+}
+.about-text {
+    text-align: left;
+    font-size: 20px;
+    margin-top: 30px;
+    font-weight: normal;
+    max-width: 55%;
+}
+.about .images {
+    width: 400px;
+    height: 510px;
+}
+.about-photo img{
+
+
+}
+.wedding-day, .save-day {
+    width: 100vw;
+    overflow: hidden;
+    white-space: nowrap;
+    background: #aaa9a5;
+    color: black;
+    padding: 20px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.wedding-day-content, .wedding-wish-content, .wedding-loc-content, .save-day-content {
+    display: flex;
+    gap: 50px;
+    position: absolute;
+    white-space: nowrap;
+    will-change: transform;
+}
+
+.wedding-day-content span, .save-day-content span, .wedding-loc-content span,
+.wedding-wish-content span {
+    font-size: 24px;
+}
+
+.date {
+    border-bottom: 1px solid black;
+
+}
+.date .container {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    height: auto;
+    gap: 20px;
+    overflow: hidden;
+}
+
+.date .container  img {
+    max-width: 400px;
+}
+
+.calendar {
+    width: 360px;
+    text-align: center;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-size: 29px;
+}
+.day {
+    padding: 6px;
+    position: relative;
+}
+.day.empty {
+    background: transparent;
+}
+.heart {
+    color: #7a0f21;
+    font-size: 46px;
+    position: absolute;
+    bottom: -22px;
+    right: -20px;
+    z-index: -1;
+}
+.heart svg {
+    width: 49px;
+    height: 40px;
+}
+
+.day.special {
+    color: white;
+}
+.date .images {
+    width: 400px;
+    height: 540px;
+}
+
+
+
+
+ .program, .presence, .dresscode, .wishes {
+    padding: 50px 0 0 0;
+}
+
+.location-title, .program-title, .dresscode-title, .wishes-title, .organizer-title,
+.presence-title {
+    text-align: center;
+    font-size: 70px;
+    margin-bottom: 30px;
+    font-family: "Kudry", sans-serif;
+}
+
+.program .container {
+
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 3px;
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+.event {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 85%;
+    font-size: 40px;
+    gap: 0px;
+
+}
+.event.line {
+    width: 1px;
+    height: 70px;
+    background-color: black;
+}
+
+
+
+
+
+.location{
+    border-bottom: 1px solid black;
+}
+.location .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.location-information {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.location-info {
+    text-align: center;
+    font-size: 35px;
+    max-width: 55%;
+}
+.location-address {
+    text-align: center;
+}
+.location-address a {
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    outline: none;
+    color: #000000;
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 30px;
+    padding: 15px;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+.location-address a:hover {
+    color: #8c8c8c;
+    display: inline-block;
+    cursor: pointer;
+
+}
+
+.location .images {
+    width: 400px;
+    height: 540px;
+}
+ .images {
+     width: 100%;
+    max-width: 400px;
+    height: 300px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ .images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+     flex-shrink: 0;
+}
+
+
+
+
+
+
+.dresscode {
+    position: relative;
+    background-image: url("../images/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    color: white;
+    padding: 50px 0;
+}
+.dresscode .container {
+    z-index: 3;
+    position: relative;
+}
+.dresscode::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7); /* Черный с прозрачностью 50% */
+    z-index: 1;
+}
+
+.wishes {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid black;
+}
+
+.dresscode-info {
+    text-align: center;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.dresscode-info-blocks, .dresscode-info-blocks-two {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    width: 300px;
+}
+.man, .woman {
+    margin-top: 30px;
+    font-weight: bold;
+}
+.dresscode-info-block {
+    width: 300px;
+    height: 30px;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.8s ease-in-out, transform 1.5s ease-in-out;
+
+
+}
+.dresscode-info-block.one {
+    width: 300px;
+    height: 30px;
+    background-color: #e3ecfa;
+}
+.dresscode-info-block.two {
+    width: 300px;
+    height: 30px;
+    background-color: #d3b5ab;
+}
+.dresscode-info-block.three {
+    width: 300px;
+    height: 30px;
+    background-color: #cfdaac;
+}
+.dresscode-info-block.four {
+    width: 300px;
+    height: 30px;
+    background-color: #ffffff;
+}
+.dresscode-info-block.five {
+    width: 300px;
+    height: 30px;
+    background-color: #868585;
+}
+.dresscode-info-block.six {
+    width: 300px;
+    height: 30px;
+    background-color: #000000;
+}
+.dresscode-info-block.active  {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/*.dresscode-info-blocks, .dresscode-info-blocks-two {*/
+/*    opacity: 0;*/
+/*    transform: translateX(-20px);*/
+/*    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;*/
+/*}*/
+
+/*.dresscode-info-block:nth-child(1) { transition-delay: 0.2s; }*/
+/*.dresscode-info-block:nth-child(2) { transition-delay: 0.4s; }*/
+/*.dresscode-info-block:nth-child(3) { transition-delay: 0.6s; }*/
+/*.dresscode-info-block:nth-child(4) { transition-delay: 0.8s; }*/
+/*.dresscode-info-block:nth-child(5) { transition-delay: 1s; }*/
+/*.dresscode-info-block:nth-child(6) { transition-delay: 1.2s; }*/
+
+/*.dresscode-info-blocks.active .dresscode-info-block {*/
+/*    opacity: 1;*/
+/*    transform: translateX(0);*/
+/*}*/
+
+.wishes .container {
+    position: relative;
+
+}
+.wishes-wed {
+    position: absolute;
+    top: 40%;
+    left: -22%;
+    rotate: 270deg;
+    font-family: "Book Antiqua", sans-serif;
+    text-transform: uppercase;
+    font-size: 85px;
+    color: white;
+}
+
+.wishes-text {
+    font-size: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    text-align: left;
+}
+.shoose, .konvert, .vino {
+    background: #f8f8f8;
+    padding: 15px;
+    border-radius: 10px;
+}
+.vino {
+    grid-column: span 2; // Занимает две колонки
+text-align: center;
+}
+
+
+.presence {
+    padding-bottom: 50px;
+}
+.presence .container {
+    position: relative;
+
+}
+
+.presence-text {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+.wedding-form * {
+    box-sizing: border-box;
+}
+.wedding-form {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: 30px;
+    font-family: "Cormorant Infant", sans-serif;
+
+    fieldset {
+        margin: 0 0 15px 0;
+        padding: 0;
+        border: none;
+    }
+
+    legend {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    label {
+        display: block;
+        margin: 5px 0;
+    }
+
+    input[type="text"],
+    textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid black;
+        border-radius: 5px;
+        font-size: 16px;
+        background-color: white;
+    }
+    .wedding-form input[type="radio"],
+    .wedding-form input[type="checkbox"],
+    textarea {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+    textarea {
+        min-height: 100px;
+    }
+
+    button {
+        -webkit-appearance: none; /* Убирает дефолтные стили в Safari */
+        -moz-appearance: none; /* Для Firefox */
+        appearance: none; /* Общий сброс */
+        background: gray;
+        width: 100%;
+        padding: 10px;
+        border: 1px solid black;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+
+        &:hover {
+            background: #b4b2b2;
+        }
+        &:focus {
+            outline: none; /* Убирает синюю рамку при фокусе */
+        }
+    }
+}
+@supports (-webkit-appearance: none) {
+    .wedding-form {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 20px;
+        font-size: 30px;
+        font-family: "Cormorant Infant", sans-serif;
+    }
+
+    fieldset {
+        border: none !important;
+        padding: 0;
+    }
+
+    legend {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    label {
+        display: block;
+        margin: 5px 0;
+    }
+    input[type="text"],
+    textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #8c673f;
+        border-radius: 5px;
+        font-size: 16px;
+        background-color: #f1e5d8;
+    }
+
+    textarea {
+        min-height: 100px;
+    }
+
+    button {
+        -webkit-appearance: none; /* Убирает дефолтные стили в Safari */
+        -moz-appearance: none; /* Для Firefox */
+        appearance: none; /* Общий сброс */
+        background: gray;
+        width: 100%;
+        padding: 10px;
+        border: 1px solid black;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+
+        &:hover {
+            background: #b4b2b2;
+        }
+        &:focus {
+            outline: none; /* Убирает синюю рамку при фокусе */
+        }
+    }
+}
+
+
+.timout {
+    padding: 50px 0;
+    background-color: gray;
+    color: white;
+
+}
+.timout-title {
+    font-size: 55px;
+    text-align: center;
+    font-weight: bold;
+    white-space: nowrap;
+}
+#countdown {
+    display: flex;
+    justify-content: center;
+    gap: 0px;
+}
+
+.time-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    text-align: center;
+
+}
+
+.time-box span {
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.time-box p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    text-transform: uppercase;
+    opacity: 0.8;
+    font-weight: bold;
+}
+
+
+
